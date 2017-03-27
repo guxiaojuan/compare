@@ -1,6 +1,20 @@
 // pages/collect/collect.js
 Page({
   data:{},
+  regist:function(){
+    wx.navigateTo({
+      url: '../register/register',
+      success: function(res){
+        // success
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
+  },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
   },

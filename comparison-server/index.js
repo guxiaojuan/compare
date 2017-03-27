@@ -50,17 +50,7 @@ app.post('/login',function(req,res){
         res.send({status:status,msg:config.msg[0]}).end();
         return;
     }
-    //账号名和密码验证
-    var accAndPwdReg = /^([a-zA-Z0-9_]){6,}$/ ;
-    var allNumberReg = /^\d{6,}$/;
-    if(!accAndPwdReg.test(username) && !allNumberReg.test(username)){
-        res.send({'status':status,msg:config.msg[4]}).end();
-        return;
-    }
-    if(!accAndPwdReg.test(password)){
-        res.send({'status':status,msg:config.msg[5]}).end();
-        return;
-    }
+
     //查询用户
     var sql = "SELECT * FROM user WHERE username = '{username}' AND userpass = '{password}'";
     sql = sql.replace("{username}",username);
@@ -131,10 +121,10 @@ app.post('/register',function(req,res){
     }
 
     //重复账号名判定
-    var accoutRepeatSql = "SELECT * FROM user WHERE username = '{username}'";
-    accoutRepeatSql = accoutRepeatSql.replace("{username}",username);
-    console.log(accoutRepeatSql);
-    client.query(sql,function(err,res,field){
+    var sqlRepeat = "SELECT * FROM user WHERE username = '"+ username+"'";
+    //accoutRepeatSql = accoutRepeatSql.replace("{username}",username);
+    console.log(sqlRepeat);
+    client.query(sqlRepeat,function(err,res,field){
         if(err) throw err;
         if(res.length > 0){
             res.send({'status':status,msg:config.msg[3]}).end();
@@ -143,23 +133,21 @@ app.post('/register',function(req,res){
     });
     //账号名和密码验证
     var accAndPwdReg = /^([a-zA-Z0-9_]){6,}$/ ;
-    var allNumberReg = /^\d{6,}$/;
-    if(!accAndPwdReg.test(username) && !allNumberReg.test(username)){
-        res.send({'status':status,msg:config.msg[4]}).end();
-        return;
-    }
+    // var allNumberReg = /^\d{6,}$/;
+    // if(!accAndPwdReg.test(username) && !allNumberReg.test(username)){
+    //     res.send({'status':status,msg:config.msg[4]}).end();
+    //     return;
+    // }
     if(!accAndPwdReg.test(password)){
         res.send({'status':status,msg:config.msg[5]}).end();
         return;
     }
     //执行数据库插入数据
-    var sql = "INSERT INTO user(username,userpass) VALUES('{username}','{password}')";
-    sql = sql.replace("{username}",username);
-    sql = sql.replace("{password}",password);
+    var sql = "INSERT INTO user(username,userpass) VALUES( "+"'"+username+"','"+password+"')";
 
     console.log(sql);
     client.query(sql,function(err,res,field){
-        if(err) throw err;
+        //if(err) throw err;
         if(res.affectedRows >0){
             status = 1;
         }

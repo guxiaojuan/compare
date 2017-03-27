@@ -20,8 +20,9 @@ Page({
       }),
       method: 'POST', 
       success: function(res){
-        console.log('register/register:请求发送成功');
+        //console.log('register/register:请求发送成功');
         var data = res.data;
+        console.log(res.data);
         if(data.status){
           wx.showToast({
             title : '登陆成功',
@@ -42,6 +43,11 @@ Page({
               })
             }
           });
+        }
+        else{
+          wx.showToast({
+            title:res.data.msg
+          })
         }
       }
     });

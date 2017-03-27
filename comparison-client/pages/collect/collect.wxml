@@ -1,2 +1,5 @@
 <!--pages/collect/collect.wxml-->
-<text>pages/collect/collect.wxml</text>
+<view>
+   <navigator url="../login/login">登录</navigator>
+   <navigator url="../register/register">注册</navigator>
+</view>

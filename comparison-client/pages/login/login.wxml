@@ -7,7 +7,7 @@
 
     <view class="container">
         <button form-type="submit">登录</button>
-        <navigator url="../register/register"><button>注册</button></navigator>
+        <navigator url="../register/register">去注册</navigator>
     </view>
 
 </form>

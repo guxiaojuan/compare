@@ -6,7 +6,3 @@
   </block>
 </swiper>
 
-<view>
-  <button bindtap="goRegist">注册</button>  
-</view>
-

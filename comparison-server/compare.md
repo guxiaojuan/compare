@@ -120,3 +120,9 @@
 4. 分淘宝，京东和当当显示，一个对应一个按钮，高亮显示；
 5. 再次搜索，返回步骤二；
 6. 一个叉用于删除搜索词，仅做dom级别删除，不触发其他事件；
+
+## mysql数据库配置
+1.CREATE DATABASE comparison 建立comparison数据库
+2.建立数据表
+>> CREATE TABLE user(
+>>

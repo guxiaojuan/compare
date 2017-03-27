@@ -12,20 +12,6 @@ Page({
 
        
   }, 
-  goRegist:function(){
-    wx.navigateTo({
-      url: '../register/register',
-      success: function(res){
-        // success
-      },
-      fail: function() {
-        // fail
-      },
-      complete: function() {
-        // complete
-      }
-    })
-  },
   onload:function(){
     wx.request({
       url:config.server+'home',

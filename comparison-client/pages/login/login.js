@@ -15,21 +15,17 @@ Page({
       header: {  
         "Content-Type": "application/x-www-form-urlencoded"  
       }, 
-      /*
+  
       data: util.formatString({
         'username':username,
         'password':password
       }),
-      */
-      data:{
-        'username':username,
-        'password':password
-      },
+      
       method: 'POST', 
       success: function(res){
         console.log('login/login:请求发送成功');
-        var data = res.data;
-        if(data.status){
+    
+        if(res.data.status){
           that.setData({
             username : username
           });
@@ -40,17 +36,14 @@ Page({
             success : function(){
               wx.setStorageSync('username', username);
               wx.setStorageSync('logintime', Date.now());
-              console.log(123);
-              wx.navigateTo({
-                url: '../search/search',
+              
+              wx.navigateBack({
+                url: '../collect/collect',
                 success: function(res){
                   console.log('login/login:登陆成功，成功跳转搜索页面');
                 },
                 fail: function() {
                   console.log('login/login:登陆成功，但没有成功跳转搜索页面');
-                },
-                complete: function() {
-                  console.log('login/login:尝试跳转搜索页面');
                 }
               });
             }
