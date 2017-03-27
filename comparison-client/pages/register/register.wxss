@@ -1,0 +1,10 @@
+/* pages/register/register.wxss */
+
+.myinput{
+    border:2rpx solid #ccc;
+    border-radius:10rpx;
+    margin:30rpx 40rpx;
+    padding:10rpx;
+}
+
+

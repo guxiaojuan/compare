@@ -1,0 +1,12 @@
+<swiper indicator-dots="true" autoplay interval="5000">
+  <block wx:for-items="{{imgUrls}}">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image"/>
+    </swiper-item>
+  </block>
+</swiper>
+
+<view>
+  <button bindtap="goRegist">注册</button>  
+</view>
+

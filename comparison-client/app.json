@@ -1,0 +1,34 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/search/search",
+    "pages/collect/collect",
+    "pages/login/login",
+    "pages/register/register"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "比价器",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "selectedColor":"#3cc5ef",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath": "iconPath",
+      "selectedIconPath": "selectedIconPath"
+    },{
+      "pagePath": "pages/search/search",
+      "text": "搜索",
+      "iconPath": "iconPath",
+      "selectedIconPath": "selectedIconPath"
+    },{
+      "pagePath": "pages/collect/collect",
+      "text": "我的收藏",
+      "iconPath": "iconPath",
+      "selectedIconPath": "selectedIconPath"
+    }]
+  }
+}

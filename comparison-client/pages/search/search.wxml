@@ -1,0 +1,8 @@
+<!--pages/search/search.wxml-->
+<form bindsubmit="doSearch">
+    <input type="text" name="wd" placeholder="请输入搜索内容"/>
+    <button form-type="submit">搜索</button>
+    <view wx:for="{{list}}"                             wx:for-index="idx" wx:for-item="itemName">
+    {{idx}}: {{itemName.name}}
+    </view>
+</form>
