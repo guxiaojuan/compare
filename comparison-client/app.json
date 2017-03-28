@@ -8,27 +8,27 @@
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#434e5f",
     "navigationBarTitleText": "比价器",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle":"#fff"
   },
   "tabBar": {
     "selectedColor":"#3cc5ef",
     "list": [{
       "pagePath": "pages/index/index",
       "text": "首页",
-      "iconPath": "iconPath",
-      "selectedIconPath": "selectedIconPath"
+      "iconPath": "images/home1.png",
+      "selectedIconPath": "images/home.png"
     },{
       "pagePath": "pages/search/search",
       "text": "搜索",
-      "iconPath": "iconPath",
-      "selectedIconPath": "selectedIconPath"
+      "iconPath": "images/web-search1.png",
+      "selectedIconPath": "images/web-search.png"
     },{
       "pagePath": "pages/collect/collect",
       "text": "我的收藏",
-      "iconPath": "iconPath",
-      "selectedIconPath": "selectedIconPath"
+      "iconPath": "images/xingxing1.png",
+      "selectedIconPath": "images/xingxing.png"
     }]
   }
 }

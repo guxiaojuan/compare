@@ -6,3 +6,15 @@
   </block>
 </swiper>
 
+<block wx:for="{{homeList}}">
+  <view class="listItem"> 
+    <image src="{{item.logo}}" class="listImage"></image>
+    <block class="content">
+      <text class="price">{{item.price}}</text>
+      <text class="name">{{item.name}}</text>
+      <text class="shop">{{item.shop}}</text>
+    </block>
+  </view>
+</block>
+
+

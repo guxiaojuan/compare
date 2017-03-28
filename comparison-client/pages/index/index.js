@@ -7,22 +7,37 @@ Page({
     imgUrls:[
       '../../images/banner1.jpg',
       '../../images/banner2.png',
-      '../../images/banner3.jpg'
+      '../../images/banner4.jpg',
+   
     ],
-
+    homeList:[]
        
   }, 
-  onload:function(){
+
+  onLoad:function(){
+    var that=this;
     wx.request({
-      url:config.server+'home',
-      data: {},
+      url:config.server,
+       header: {  
+        "Content-Type": "application/x-www-form-urlencoded"  
+      }, 
       method: 'GET', 
       success: function(res){
         // success
-        var data=res.data;
+        console.log('成功从后台获取到主页信息')
+        if(res.data.list.status==100){
+          that.setData({
+            homeList:res.data.list.data
+          })
+        }
+        
       },
       fail: function() {
-        // fail
+        wx.showToast({
+          title:'正在加载中',
+          icon:'loading'
+        });
+        console.log('没有获取到信息');
       },
       complete: function() {
         // complete
@@ -30,4 +45,4 @@ Page({
     })
   } 
   
-})
+});

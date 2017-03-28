@@ -1,13 +1,14 @@
 <!--pages/login/login.wxml-->
 <form bindsubmit="formSubmit">
-    <view>
-        <input type="text" placeholder="用户名" name="username" class="myinput"/>
-        <input type="password" placeholder="密码" name="password" class="myinput"/>
-    </view>
-
     <view class="container">
-        <button form-type="submit">登录</button>
-        <navigator url="../register/register">去注册</navigator>
+        <image class="inputImage" src="../../images/user.png"></image>
+        <input type="text" placeholder="用户名" name="username" class="myinput"/>
+        <image class="inputImage" src="../../images/key.png"></image>
+        <input type="password" placeholder="密码" name="password" class="myinput"/>
+         <button form-type="submit">登录</button>
+   
+        <image class="registImage" src="../../images/plane1.png"></image>
+        <navigator url="../register/register">还没有账号？去注册</navigator>
     </view>
 
 </form>

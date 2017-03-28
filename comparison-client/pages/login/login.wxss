@@ -1,11 +1,30 @@
 /* pages/login/login.wxss */
 .myinput{
-    border:2rpx solid #ccc;
+    border:1rpx #ccc;
+    border-bottom:solid;
     border-radius:10rpx;
     margin:30rpx 40rpx;
     padding:10rpx;
 }
 
 button{
-    margin-bottom:20rpx;    
+    margin-top:50rpx;    
+}
+
+.inputImage{
+    width:40rpx;
+    height:40rpx;
+    position:relative;
+    right:-240rpx;
+    bottom:-90rpx;
+    display:block;
+}
+.registImage{
+    height:400rpx;
+    width:500rpx;
+    margin-top:100rpx;
+}
+navigator{
+    color:#3A4565;
+    border-bottom:3rpx solid #d40f0d;
 }

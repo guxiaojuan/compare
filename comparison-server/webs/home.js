@@ -4,7 +4,6 @@ var request=require('sync-request');
 var url="http://m.smzdm.com/";
 
 function getList(url){
-    var reg=/\d+|-|:|\s/g;
     var body = request('GET',url).getBody().toString();
     var $=cheerio.load(body);
     var packet = {
@@ -18,12 +17,15 @@ function getList(url){
         var itemHtml=cheerio.load($(this).html());
         var item={};
         item.price=itemHtml('.tips>em').text();
-        item.shop=itemHtml('address').text().replace(reg,'');
+        item.shop=itemHtml('address').text();
         item.name=itemHtml('h2').text();
         item.logo=itemHtml('img').attr('src');
-        if(item.name!=undefined)
+        if(item.name!=undefined && item.shop!=''&& item.price!='')
             packet.data.push(item);
     });
+    console.log(packet);
     return packet;
 }
+
+//getList(url);
 exports.getHomeList=getList;

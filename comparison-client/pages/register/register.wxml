@@ -2,9 +2,9 @@
 
 <form bindsubmit="doRegister">
     <label for="username">用户名：</label>
-    <input type="text" name="username" placeholder="用户名不少于6位" class="myinput"/>
+    <input type="text" name="username" placeholder="用户名" class="myinput"/>
     <label for="password">密码：</label>
-    <input type="text" password name="password" placeholder="密码" class="myinput"/>
+    <input type="text" password name="password" placeholder="密码不少于6位" class="myinput"/>
     <label for="confirm">确认密码：</label>
     <input type="text" password name="confirm" placeholder="确认密码"  class="myinput"/>
 
