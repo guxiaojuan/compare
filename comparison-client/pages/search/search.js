@@ -26,8 +26,11 @@ Page({
         if(res.data.list.status==100){
           that.setData({
             list:res.data.list.data
-          })
+          });
+
+          wx.setStorageSync('search',wd);
         }
+
       }
  
     })

@@ -1,1 +1,31 @@
 /* pages/search/search.wxss */
+.myinput{
+    border: 2rpx solid #464a56;
+    margin-top:25rpx;
+    margin-left:15rpx;
+    margin-bottom:25rpx;
+    height:100rpx;
+    border-radius:17rpx;
+    float:left;
+    width:73%;
+}
+
+.btn{
+    float:right;
+    margin-top:25rpx;
+    margin-right:15rpx;
+    margin-bottom:25rpx;
+    height:100rpx;
+    background-color:#464a56;
+    color:#fff;
+    width:20%;
+}
+
+.recent{
+    clear:both;
+}
+.recent,.hot{
+    padding:28rpx 10rpx;
+    border-top:2rpx solid #dedede;
+    color:#29b1ff;
+}
