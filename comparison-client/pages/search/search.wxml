@@ -1,15 +1,24 @@
 <!--pages/search/search.wxml-->
-<view>
-    <input type="text" class="myinput" placeholder="请输入搜索内容"/>
-    <button form-type="submit" class="btn">搜索</button>
-</view>
+  <form bindsubmit="doSearch">   
+    <view class="show1">
+        <input type="text" name="wd" class="myinput" placeholder="请输入搜索内容"/>
+        <button form-type="submit" class="btn">搜索</button>
+    </view>
+</form>
 
 <view class="recent">
-    <text>近期搜索</text>
+    <view class="table">
+        <view class="tr bg-header">近期搜索过的商品</view>
+        <block wx:for="{{recent}}">
+            <view class="tr bg-items">
+                <view class="td">items</view>
+            </view>
+        </block>
+    </view>
 </view>
 <view class="hot">
     <text>热门搜索</text>
 </view>
-<view wx:for="{{list}}"                             wx:for-index="idx" wx:for-item="itemName">
+<view class="show2" wx:for="{{list}}"                             wx:for-index="idx" wx:for-item="itemName">
 {{idx}}: {{itemName.name}}
 </view>

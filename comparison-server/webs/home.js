@@ -7,8 +7,6 @@ function getList(url){
     var body = request('GET',url).getBody().toString();
     var $=cheerio.load(body);
     var packet = {
-        status : 100,
-        message: "success",
         data   : []
     };
 

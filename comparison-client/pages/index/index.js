@@ -25,22 +25,16 @@ Page({
       success: function(res){
         // success
         console.log('成功从后台获取到主页信息')
-        if(res.data.list.status==100){
+        if(res.data.status=='success'){
           that.setData({
             homeList:res.data.list.data
           })
+        }else{
+          ws.showToast({
+            title:res.data.msg
+          })
         }
         
-      },
-      fail: function() {
-        wx.showToast({
-          title:'正在加载中',
-          icon:'loading'
-        });
-        console.log('没有获取到信息');
-      },
-      complete: function() {
-        // complete
       }
     })
   } 

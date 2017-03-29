@@ -25,9 +25,19 @@ app.use(express.static('./'));
 //首页
 app.get('/',function(req,res){
     var homeData=home.getHomeList('http://m.smzdm.com/');
-    res.send({
-        'list':homeData
-    });
+    if(homeData.data){
+        res.send({
+            list:homeData,
+            status:'success'
+        });
+    }
+    else{
+        res.send({
+            status:'failure',
+            msg:'今天没有新的咨询可以推送'
+        })
+    }
+
 })
 
 /**
@@ -68,7 +78,7 @@ app.post('/login',function(req,res){
         }
         //console.log(res.length);
         if(res.length>0)  status = 1;
-        res1.send({'status' : status,msg:config.msg[9]}).end();
+        res1.send({status : status,msg:config.msg[9]}).end();
         return;
     });
 });
@@ -86,7 +96,8 @@ app.get('/search',function(req,res){
     console.log(itemList);
 
     res.send({
-        'list' : itemList
+        list : itemList,
+        status:'success'
     });
 
 });

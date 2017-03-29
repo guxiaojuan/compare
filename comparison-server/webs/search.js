@@ -7,8 +7,6 @@ function getList(word){
     var body = request('GET',path).getBody().toString();
     var $ = cheerio.load(body);
     var packet = {
-        status : 100,
-        message: "success",
         data   : []
     };
     var items = $(".feed-row-wide");
