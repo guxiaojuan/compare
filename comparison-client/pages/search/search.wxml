@@ -1,24 +1,34 @@
 <!--pages/search/search.wxml-->
   <form bindsubmit="doSearch">   
-    <view class="show1">
+    <view>
         <input type="text" name="wd" class="myinput" placeholder="请输入搜索内容"/>
         <button form-type="submit" class="btn">搜索</button>
     </view>
 </form>
 
-<view class="recent">
-    <view class="table">
-        <view class="tr bg-header">近期搜索过的商品</view>
-        <block wx:for="{{recent}}">
-            <view class="tr bg-items">
-                <view class="td">items</view>
-            </view>
-        </block>
+<view class="show1" wx:if="{{!isDisplay}}">
+    <view class="recent">
+        <view class="table">
+            <view class="tr bg-header">近期搜索过的商品</view>
+            <block>
+                <view class="tr bg-items">
+                    <view class="td"></view>
+                </view>
+            </block>
+        </view>
+    </view>
+    <view class="hot">
+        <view class="table">
+            <view class="tr bg-header">热门搜索商品</view>
+            <block>
+                <view class="tr bg-items">
+                    <view class="td"></view>
+                </view>
+            </block>
+        </view>
     </view>
 </view>
-<view class="hot">
-    <text>热门搜索</text>
-</view>
-<view class="show2" wx:for="{{list}}"                             wx:for-index="idx" wx:for-item="itemName">
+
+<view wx:if="{{isDisplay}}" class="show2" wx:for="{{list}}"                             wx:for-index="idx" wx:for-item="itemName">
 {{idx}}: {{itemName.name}}
 </view>

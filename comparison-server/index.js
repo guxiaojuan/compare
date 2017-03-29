@@ -84,9 +84,9 @@ app.post('/login',function(req,res){
 });
 
 //搜索
-app.get('/search',function(req,res){
+app.get('/search/:word',function(req,res){
     //从小程序，获取查询词
-    var word = req.body.word;
+    var word = req.params.word;
     //验证不为空
     if(!word){
         res.send({status:'failure',msg:config.msg[8]}).end();
@@ -144,11 +144,7 @@ app.post('/register',function(req,res){
     });
     //账号名和密码验证
     var accAndPwdReg = /^([a-zA-Z0-9_]){6,}$/ ;
-    // var allNumberReg = /^\d{6,}$/;
-    // if(!accAndPwdReg.test(username) && !allNumberReg.test(username)){
-    //     res.send({'status':status,msg:config.msg[4]}).end();
-    //     return;
-    // }
+
     if(!accAndPwdReg.test(password)){
         res.send({'status':status,msg:config.msg[5]}).end();
         return;
