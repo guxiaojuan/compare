@@ -9,7 +9,6 @@
     float:left;
     width:73%;
 }
-
 .btn{
     float:right;
     margin-top:25rpx;
@@ -21,11 +20,78 @@
     width:20%;
 }
 
-.recent{
+.recent,.hot{
     clear:both;
 }
 .recent,.hot{
+    clear:both;
     padding:28rpx 10rpx;
     border-top:2rpx solid #dedede;
     color:#29b1ff;
+}
+
+.bg-header{
+    font-family:'microsoft yahei';
+    color:#a43421;
+    font-weight: bold;
+    
+}
+.listItem{
+  border-bottom:4rpx solid #dedede;
+  height: 280rpx;
+  padding-top:30rpx;
+}
+.price{
+  color:#f04848;
+}
+.name{
+  display:block;
+  margin-bottom:20rpx;
+}
+.listImage{
+  width:200rpx;
+  height: 200rpx;
+  margin-left:10rpx;
+  float:left;
+  margin-right:15rpx;
+}
+
+.table{
+    margin-top:40rpx;
+    margin-left:20rpx;
+    margin-right:20rpx;
+    border:4rpx solid #8a8a8a;
+    border-top:none;
+}
+.tr{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    border-top:4rpx solid #8a8a8a;
+    height: 3rem;
+    align-items: center;
+}
+.td{
+    width:40%;
+    justify-content: center;
+    text-align: center;
+}
+
+.show{
+    clear:both;
+    height:20rpx;
+    width:100%;
+}
+
+.none text{
+    display:block;
+    padding-top:60rpx;
+    padding-left:10rpx;
+    color:#f04848;
+}
+.none image{
+    float:right;
+    width:40%;
+    height:250rpx;
+    padding:0 10rpx;
 }

@@ -13,11 +13,14 @@ function pushRecent(word){
 Page({
   data:{
     list : [],
-    hotList:[],
     recentList:[],
     isDisplay:false,
     recentList:null,
-    hotData:['洗衣液','毛巾','窗帘','水果','蔬菜']
+    hotData:[
+      {'A':'手机','B':'电脑','C':'电视'},
+      {'A':'洗衣液','B':'毛巾','C':'窗帘'},
+      {'A':'水果','B':'蔬菜','C':''}
+    ]
   },
   doSearch:function(e){
     var wd = e.detail.value.wd;
@@ -49,8 +52,9 @@ Page({
  
     })
   },
-  hotSearch:function(key){
+  hotSearch:function(e){
     var that=this;
+    var key=e.target.dataset.shop;
     wx.request({
       url: config.server+'search/'+encodeURIComponent(key),
       header: {  
@@ -63,7 +67,8 @@ Page({
       success: function(res){
         if(res.data.status=='success'){
           that.setData({
-            hotList:res.data.list.data
+            list:res.data.list.data,
+            isDisplay:true
           })
         }
         else{
@@ -89,7 +94,8 @@ Page({
       success: function(res){
         if(res.data.status=='success'){
           that.setData({
-            recentList:res.data.list.data
+            list:res.data.list.data,
+            isDisplay:true
           })
         }
         else{
