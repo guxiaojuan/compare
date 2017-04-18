@@ -40,10 +40,7 @@ Page({
               wx.navigateBack({
                 url: '../collect/collect',
                 success: function(res){
-                  console.log('login/login:登陆成功，成功跳转搜索页面');
-                },
-                fail: function() {
-                  console.log('login/login:登陆成功，但没有成功跳转搜索页面');
+                  console.log('login/login:登陆成功，成功跳转收藏页面');
                 }
               });
             }

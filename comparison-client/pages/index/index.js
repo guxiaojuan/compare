@@ -37,6 +37,9 @@ Page({
         
       }
     })
+  },
+  goCollect:function(val){
+    console.log(val);
   } 
   
 });

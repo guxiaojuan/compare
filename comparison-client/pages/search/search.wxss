@@ -38,7 +38,7 @@
 }
 .listItem{
   border-bottom:4rpx solid #dedede;
-  height: 280rpx;
+  height: 330rpx;
   padding-top:30rpx;
 }
 .price{
@@ -94,4 +94,12 @@
     width:40%;
     height:250rpx;
     padding:0 10rpx;
+}
+
+.btn-collect{
+    width:170rpx;
+    background-color: #f8872e;
+    margin-right:20rpx;
+    color:#eee;
+    font-weight: bold;
 }

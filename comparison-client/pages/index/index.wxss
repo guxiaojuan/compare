@@ -19,7 +19,7 @@ image{
 .listItem{
   border-bottom:4rpx solid #dedede;
   margin-left:10rpx;
-  height: 280rpx;
+  height: 330rpx;
   margin-top:60rpx;
 }
 .price{
@@ -28,4 +28,13 @@ image{
 .name{
   display:block;
   margin-bottom:20rpx;
+}
+
+.btn-collect{
+    width:170rpx;
+    background-color: #f8872e;
+    margin-right:20rpx;
+    color:#eee;
+    font-weight: bold;
+
 }

@@ -10,10 +10,11 @@ function pushRecent(word){
     wx.setStorageSync('recent-select', recent);
   }
 };
+
 Page({
   data:{
     list : [],
-    recentList:[],
+    recentList:wx.getStorageInfoSync('recent-select'),
     isDisplay:false,
     recentList:null,
     hotData:[
@@ -38,9 +39,9 @@ Page({
         if(res.data.status=='success'){
           that.setData({
             list:res.data.list.data,
-            isDisplay:true
+            isDisplay:true,
           });
-          //pushRecent(wd);
+          pushRecent(wd);
         }
         else{
           wx.showToast({
