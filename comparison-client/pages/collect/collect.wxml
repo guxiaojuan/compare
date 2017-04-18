@@ -1,4 +1,29 @@
 <!--pages/collect/collect.wxml-->
 <view>
-   <text>我的收藏</text>
+ <view class="collect-header">我的收藏</view>
+    <block wx:for="{{collectList}}" wx:if="{{!isdisplay}}">
+        <view class="listItem"> 
+            <image src="{{item.logo}}" class="listImage"></image>
+            <block class="content">
+                <text class="price">{{item.price}}</text>
+                <text class="name">{{item.name}}</text>
+                <view class="btn">
+                <button class='del' bindtap="del" data-name="{{item.name}}">删除</button>
+                <button class="search" bindtap="goSearch" data-wd="{{item.name}}">查看最新价格</button>
+                </view>
+           </block>
+        </view>
+    
+    </block>
+
+    <block wx:for="{{list}}" wx:if="{{isdisplay}}">
+        <view class="listItem"> 
+            <image src="{{item.logo}}" class="listImage"></image>
+            <block class="content">
+                <text class="price">{{item.price}}</text>
+                <text class="name">{{item.name}}</text>
+                <text class="shop">{{item.shop}}</text>
+            </block>
+        </view>
+    </block>
 </view>

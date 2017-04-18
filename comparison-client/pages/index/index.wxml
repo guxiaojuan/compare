@@ -13,6 +13,7 @@
       <text class="price">{{item.price}}</text>
       <text class="name">{{item.name}}</text>
       <text class="shop">{{item.shop}}</text>
+      <button class="btn-collect" bindtap="goCollect" data-price="{{item.price}}" data-logo="{{item.logo}}" data-name="{{item.name}}">点我收藏</button>
     </block>
   </view>
 </block>

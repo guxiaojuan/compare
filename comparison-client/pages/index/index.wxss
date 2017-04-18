@@ -12,15 +12,12 @@ image{
   margin-right:15rpx;
 }
 
-.content{
-  display:block;
-  float: right;
-}
 .listItem{
   border-bottom:4rpx solid #dedede;
   margin-left:10rpx;
-  height: 280rpx;
+  height: 330rpx;
   margin-top:60rpx;
+  position: relative;
 }
 .price{
   color:#f04848;
@@ -28,4 +25,18 @@ image{
 .name{
   display:block;
   margin-bottom:20rpx;
+}
+
+.btn-collect{
+    width:240rpx;
+    height:90rpx;
+    text-align: center;
+    line-height: 90rpx;
+    background-color: #f8872e;
+    position: absolute;
+    right:20rpx;
+    bottom:10rpx;
+    color:#eee;
+    font-weight: bold;
+
 }

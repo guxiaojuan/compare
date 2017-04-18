@@ -38,8 +38,9 @@
 }
 .listItem{
   border-bottom:4rpx solid #dedede;
-  height: 280rpx;
+  height: 330rpx;
   padding-top:30rpx;
+  position: relative;
 }
 .price{
   color:#f04848;
@@ -94,4 +95,17 @@
     width:40%;
     height:250rpx;
     padding:0 10rpx;
+}
+
+.btn-collect{
+    width:240rpx;
+    height:90rpx;
+    text-align: center;
+    line-height: 90rpx;
+    background-color: #f8872e;
+    position: absolute;
+    right:20rpx;
+    bottom:10rpx;
+    color:#eee;
+    font-weight: bold;
 }

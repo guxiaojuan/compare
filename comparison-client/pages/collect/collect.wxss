@@ -1,1 +1,52 @@
 /* pages/collect/collect.wxss */
+.collect-header{
+    background-color: #fe5400;
+    color:#eee;
+    font-weight: bold;
+    height:90rpx;
+    text-align: center;
+    line-height: 90rpx;
+
+
+}
+
+.listItem{
+  border-bottom:4rpx solid #dedede;
+  height: 300rpx;
+  padding-top:30rpx;
+  position:relative;
+}
+.price{
+  color:#f04848;
+}
+.name{
+  display:block;
+  margin-bottom:20rpx;
+}
+.listImage{
+  width:200rpx;
+  height: 200rpx;
+  margin-left:10rpx;
+  float:left;
+  margin-right:15rpx;
+}
+
+.search{
+    width:320rpx;
+    margin-right:12rpx;
+    color:#eee;
+    background: #f8872e;
+    position:absolute;
+    bottom:10rpx;
+    right:12rpx;
+    
+}
+.del{
+    background-color: orangered;
+    width:160rpx;
+    color:#fff;
+    margin-right: 360rpx;
+    position:absolute;
+    right:10rpx;
+    bottom:10rpx;
+}

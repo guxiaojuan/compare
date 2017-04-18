@@ -3,17 +3,18 @@ var util = require('../../utils/util');
 var config = require('../../configs/config');
 
 function pushRecent(word){
-  var recent=wx.getStorageSync('recent-select');
+  var recent=wx.getStorageSync('recent-select') || [];
   if(!recent.some(item=>item==word)){
     recent.unshift(word);
     recent=recent.slice(0,9);
     wx.setStorageSync('recent-select', recent);
   }
 };
+
 Page({
   data:{
     list : [],
-    recentList:[],
+    recentList:wx.getStorageInfoSync('recent-select'),
     isDisplay:false,
     recentList:null,
     hotData:[
@@ -38,9 +39,9 @@ Page({
         if(res.data.status=='success'){
           that.setData({
             list:res.data.list.data,
-            isDisplay:true
+            isDisplay:true,
           });
-          //pushRecent(wd);
+          pushRecent(wd);
         }
         else{
           wx.showToast({
@@ -106,6 +107,40 @@ Page({
       },
      
     })
-  }
+  },
+    goCollect:function(e){
+    if(wx.getStorageSync('username') && util.checkExpire(wx.getStorageSync('logintime'))){
+      console.log('search/search:用户未过期');
+      let obj={
+        logo:e.target.dataset.logo,
+        name:e.target.dataset.name,
+        price:e.target.dataset.price,
+      }  
+      let that=this;
+      wx.showToast({  
+        title:"收藏成功",
+        icon:'success',
+        success:function(){
+          let tmp=wx.getStorageSync('collect') || [];
+          tmp.unshift(obj);
+          wx.setStorageSync('collect', tmp);
+        }
+      })
+    }else{
+      wx.showModal({
+        title:'提示',
+        content:'您还未登陆',
+        success:function(res){
+          if(res.confirm){
+            wx.navigateTo({
+            url: '../login/login',
+            })
+          }
+        }
+      });
+
+    }
+
+ } 
  
 })
