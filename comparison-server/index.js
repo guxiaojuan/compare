@@ -139,27 +139,29 @@ app.post('/register',function(req,res){
         if(res.length > 0){
             res1.send({status:status,msg:config.msg[3]}).end();
             return;
+        }else{
+            //账号名和密码验证
+            var accAndPwdReg = /^([a-zA-Z0-9_]){6,}$/ ;
+
+            if(!accAndPwdReg.test(password)){
+                res1.send({status:status,msg:config.msg[5]}).end();
+                return;
+            }
+            //执行数据库插入数据
+            var sql = "INSERT INTO user(username,userpass) VALUES( "+"'"+username+"','"+password+"')";
+
+            console.log(sql);
+            client.query(sql,function(err,res,field){
+                //if(err) throw err;
+                if(res.affectedRows >0){
+                    status = 1;
+                }
+                res1.send({status : status,msg:config.msg[6]}).end();
+                return;
+            });
         }
     });
-    //账号名和密码验证
-    var accAndPwdReg = /^([a-zA-Z0-9_]){6,}$/ ;
 
-    if(!accAndPwdReg.test(password)){
-        res.send({status:status,msg:config.msg[5]}).end();
-        return;
-    }
-    //执行数据库插入数据
-    var sql = "INSERT INTO user(username,userpass) VALUES( "+"'"+username+"','"+password+"')";
-
-    console.log(sql);
-    client.query(sql,function(err,res,field){
-        //if(err) throw err;
-        if(res.affectedRows >0){
-            status = 1;
-        }
-        res1.send({status : status,msg:config.msg[6]}).end();
-        return;
-    });
 });
 
 app.listen(config.listen.port);
