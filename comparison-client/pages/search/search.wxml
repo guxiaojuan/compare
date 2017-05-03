@@ -10,9 +10,11 @@
     <view class="recent">
         <view class="bg-header">近期搜索过的商品</view>
         <view class="table" wx:if="{{recentList}}">
-            <block>
+            <block wx:for="{{recentList}}">
                 <view class="tr bg-items">
-                    <view class="td"></view>
+                    <view class="tr bg-items">
+                    <view class="td" bindtap="recentSearch">{{item}}</view>
+                </view>
                 </view>
             </block>
         </view>
@@ -37,14 +39,14 @@
 </view>
 
 <view class="show"></view>
-<block wx:for="{{list}}">
+<block wx:for="{{list}}" wx:if="{{isDisplay}}">
   <view class="listItem"> 
     <image src="{{item.logo}}" class="listImage"></image>
     <block class="content">
       <text class="price">{{item.price}}</text>
       <text class="name">{{item.name}}</text>
       <text class="shop">{{item.shop}}</text>
-      <button class="btn-collect" bindtap="goCollect" data-price="{{item.price}}" data-logo="{{item.logo}}" data-name="{{item.name}}">是否收藏</button>
+      <button class="btn-collect" bindtap="goCollect" data-price="{{item.price}}" data-logo="{{item.logo}}" data-name="{{item.name}}">点我收藏</button>
     </block>
   </view>
 </block>

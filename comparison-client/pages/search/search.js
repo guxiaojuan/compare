@@ -6,15 +6,15 @@ function pushRecent(word){
   var recent=wx.getStorageSync('recent-select') || [];
   if(!recent.some(item=>item==word)){
     recent.unshift(word);
-    recent=recent.slice(0,9);
-    wx.setStorageSync('recent-select', recent);
   }
+  if(recent.length>5)
+    recent=recent.slice(0,5);
+  wx.setStorageSync('recent-select', recent);
 };
 
 Page({
   data:{
     list : [],
-    recentList:wx.getStorageInfoSync('recent-select'),
     isDisplay:false,
     recentList:null,
     hotData:[
@@ -37,11 +37,12 @@ Page({
       method: 'GET', 
       success: function(res){    
         if(res.data.status=='success'){
+          pushRecent(wd);
           that.setData({
             list:res.data.list.data,
             isDisplay:true,
+            recentList:wx.getStorageSync('recent-select') || null
           });
-          pushRecent(wd);
         }
         else{
           wx.showToast({
@@ -66,10 +67,12 @@ Page({
       }),
       method: 'GET', 
       success: function(res){
+        pushRecent(key);
         if(res.data.status=='success'){
           that.setData({
             list:res.data.list.data,
-            isDisplay:true
+            isDisplay:true,
+            recentList:wx.getStorageSync('recent-select') || null
           })
         }
         else{
@@ -141,6 +144,12 @@ Page({
 
     }
 
+ },
+ onShow:function(){
+   this.setData({
+     isDisplay:false,
+     recentList:wx.getStorageSync('recent-select') || null
+   })
  } 
  
 })
