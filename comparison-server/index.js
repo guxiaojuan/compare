@@ -107,7 +107,6 @@ app.get('/search/:word',function(req,res){
  * 请求参数：
  *  username : 用户名
  *  password : 密码
- *  email    : 邮件
  *  confirm  : 用于确认密码
  * 返回结果：
  *  status : 1为成功，0为失败
@@ -127,7 +126,7 @@ app.post('/register',function(req,res){
     }
     //确认密码
     if(confirm != password){
-        res.send({'status':status,msg:config.msg[1]}).end();
+        res.send({status:status,msg:config.msg[1]}).end();
         return;
     }
 
@@ -138,7 +137,7 @@ app.post('/register',function(req,res){
     client.query(sqlRepeat,function(err,res,field){
         if(err) throw err;
         if(res.length > 0){
-            res.send({'status':status,msg:config.msg[3]}).end();
+            res1.send({status:status,msg:config.msg[3]}).end();
             return;
         }
     });
@@ -146,7 +145,7 @@ app.post('/register',function(req,res){
     var accAndPwdReg = /^([a-zA-Z0-9_]){6,}$/ ;
 
     if(!accAndPwdReg.test(password)){
-        res.send({'status':status,msg:config.msg[5]}).end();
+        res.send({status:status,msg:config.msg[5]}).end();
         return;
     }
     //执行数据库插入数据
@@ -158,7 +157,7 @@ app.post('/register',function(req,res){
         if(res.affectedRows >0){
             status = 1;
         }
-        res1.send({'status' : status,msg:config.msg[6]}).end();
+        res1.send({status : status,msg:config.msg[6]}).end();
         return;
     });
 });

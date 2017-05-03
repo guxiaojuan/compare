@@ -84,7 +84,7 @@
 ### 请求接口测试(×)
 
 ### 爬虫请求(×)
-* 爬虫基于phantomjs,安装请使用如下代码：
+* 动态页面基于phantomjs,安装请使用如下代码：
     ```
       npm install phantomjs -g
     ```
@@ -92,6 +92,10 @@
 * 函数wordToBuffer用于处理编码问题，将字符串硬编码为16进制，此为保留函数，由于可以使用`encodeURLcomponent`简单处理
 * 函数getList用于调用子进程（TODO:用异步调用提高速度）
 * 函数中`__dirname.split('\\').join('/')`一句，`__dirname`用于获取当前模板完整文件夹路径，为了兼容性，将`\`转化为`/`
+
+* 静态页面基于cheerio.js获取
+* 使用sync-request模块处理异步问题
+
 
 #### 淘宝案例
 1. 调用格式类似 `phantomjs taobao.js dota`
